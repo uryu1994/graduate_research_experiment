@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>メイン</title>
+  <script src="js/webgl/three/three.js"></script>
+  <script src="js/webgl/TrackballControls.js"></script>
+  <script src="js/webgl/FlyControls.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/CubeRandomObject.js"></script>
+  <script src="js/DistinctiveObject.js"></script>
+  <script src="js/RGBDirectionalLight.js"></script>
+  <script src="js/WhiteDirectionalLight.js"></script>
+  <script src="js/MainCameraObject.js"></script>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+  <div id="canvas-frame"></div>
+  <div class="util">
+    <div id="camera-line">
+      <strong>カメラ:</strong>
+      <button type="button" onclick="mainCameraObject.cameraLineControll()">
+        軌跡
+      </button>
+    </div>
+    <div id="distinctive-obj">
+      <strong>オブジェクト:</strong>
+      <button type="button" value="flash" onclick="distinctiveObject.buttonClick(this)">
+        点滅 OFF
+      </button>
+      <button type="button" value="rotateMove" onclick="distinctiveObject.buttonClick(this)">
+        回転移動 OFF
+      </button>
+      <button type="button" value="rotate" onclick="distinctiveObject.buttonClick(this)">
+        回転 OFF
+      </button>
+      <button type="button" value="vibration" onclick="distinctiveObject.buttonClick(this)">
+        振動 OFF
+      </button>
+      <button type="button" value="graph" onclick="distinctiveObject.buttonClick(this)">
+        グラフ OFF
+      </button>
+      <button type="button" value="reset" onclick="distinctiveObject.buttonClick(this)">
+        リセット
+      </button>
+    </div>
+    <div id="rgbDirectionalLight">
+      <strong>3色平行光源:</strong>
+      <button type="button">
+        回転 OFF
+      </button>
+    </div>
+    <div id="whiteDirectionalLight">
+      <strong>白色光源</strong>
+      <button type="button" value="rotate" onclick="whiteDirectionalLight.buttonClick(this)">
+        回転 OFF
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
