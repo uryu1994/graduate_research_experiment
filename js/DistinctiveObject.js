@@ -12,7 +12,6 @@ var DistinctiveObject = function(n) {
     this.obj_line = new Array(n);
     this.obj_Edges = new Array(n);
 
-    this.createDistinctiveObject();
     this.time = {
         flashTime : 0,
         rotateTime : 0,
@@ -37,15 +36,13 @@ var DistinctiveObject = function(n) {
 /**
  * 特徴あるオブジェクトを埋め込みます
  */
-DistinctiveObject.prototype.createDistinctiveObject = function() {
+DistinctiveObject.prototype.createDistinctiveObject = function(rangeX, rangeY, rangeZ) {
     for (var i = 0; i < this.obj.length; i++) {
         var geometry = new THREE.BoxGeometry(10, 10, 10);
         var material = new THREE.MeshPhongMaterial();
         var color = new THREE.Color();
         var specular = new THREE.Color();
-        //color.setRGB(Math.random(), Math.random(), Math.random());
         color.setRGB(0, 1, 0);
-        //specular.setRGB(Math.random(), Math.random(), Math.random());
         specular.setRGB(1,1,1);
         material.color.set(color);
         material.specular.set(specular);
@@ -54,14 +51,14 @@ DistinctiveObject.prototype.createDistinctiveObject = function() {
         this.obj[i] = new THREE.Mesh(geometry, material);
 
         this.obj[i].position.set(
-            Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500);
+            Math.random() * rangeX - rangeX / 2,
+            Math.random() * rangeY - rangeY / 2,
+            Math.random() * rangeZ - rangeZ / 2);
 
         this.obj[i].rotation.set(
             Math.PI * (Math.random() * 2),
             Math.PI * (Math.random() * 2),
-            Math.PI + (Math.random() * 2));
+            Math.PI * (Math.random() * 2));
 
         this.obj_pos[i] = $.extend(true, {}, this.obj[i].position);
         this.obj_rotation[i] = $.extend(true, {}, this.obj[i].rotation);
@@ -80,7 +77,6 @@ DistinctiveObject.prototype.createDistinctiveObject = function() {
         this.obj_Edges[i] = new THREE.FaceNormalsHelper(
             this.obj[i], 2, 0x00ff00, 1
         );
-
         }
 };
 

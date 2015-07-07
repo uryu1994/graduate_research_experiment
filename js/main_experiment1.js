@@ -60,7 +60,6 @@ function loop() {
         y: 0,
         z: 0
     });
-    distinctiveObject.functionControll();
     whiteDirectionalLight.functionControll();
     renderer.render(scene, mainCameraObject.camera);
     mainCameraObject.trackball.update();
@@ -123,14 +122,15 @@ var cubeRandomObject,
  * オブジェクトを生成します
  */
 function createObject() {
-    cubeRandomObject = new CubeRandomObject(990);
-    distinctiveObject = new DistinctiveObject(10);
-    for (var i = 0; i < cubeRandomObject.objects.length; i++) {
-        scene.add(cubeRandomObject.objects[i]);
+    cubeRandomObjects = new Array(990);
+    distinctiveObjects = new Array(10)
+    for (var i = 0; i < cubeRandomObjects.length; i++) {
+        cubeRandomObjects[i] = new CubeObject();
     }
 
-    for (var j = 0; j < distinctiveObject.obj.length; j++) {
-        scene.add(distinctiveObject.obj[j]);
+    for (var j = 0; j < distinctiveObjects.length; j++) {
+        distinctiveObjects[j] = new CubeObject();
+
     }
 }
 
