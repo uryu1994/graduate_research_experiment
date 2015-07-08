@@ -17,7 +17,6 @@ function threeStart() {
     initThree();
     mainCameraObject = new MainCameraObject();
     initLight();
-    //initObject();
     createObject();
     loop();
 }
@@ -61,6 +60,7 @@ function loop() {
         z: 0
     });
     whiteDirectionalLight.functionControll();
+    experimentEffect();
     renderer.render(scene, mainCameraObject.camera);
     mainCameraObject.trackball.update();
     mainCameraObject.updateCamera();
@@ -123,14 +123,35 @@ var cubeRandomObject,
  */
 function createObject() {
     cubeRandomObjects = new Array(990);
-    distinctiveObjects = new Array(10)
+    distinctiveObjects = new Array(10);
     for (var i = 0; i < cubeRandomObjects.length; i++) {
         cubeRandomObjects[i] = new CubeObject();
+        cubeRandomObjects[i].createCubeObject(
+            Math.random() * 1000 - 500,
+            Math.random() * 1000 - 500,
+            Math.random() * 1000 - 500
+        );
+        scene.add(cubeRandomObjects[i].obj);
     }
 
     for (var j = 0; j < distinctiveObjects.length; j++) {
         distinctiveObjects[j] = new CubeObject();
+        distinctiveObjects[j].createCubeObject(
+            Math.random() * 1000 - 500,
+            Math.random() * 1000 - 500,
+            Math.random() * 1000 - 500
+        );
+        scene.add(distinctiveObjects[j].obj);
 
+    }
+}
+
+function experimentEffect() {
+    for (var i = 0; i < distinctiveObjects.length; i++) {
+        distinctiveObjects[i].rotateMoveObject(2);
+    }
+    for (var j = 0; j < cubeRandomObjects.length; j++) {
+        cubeRandomObjects[j].rotateMoveObject(5);
     }
 }
 

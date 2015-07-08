@@ -13,7 +13,7 @@ var CubeObject = function() {
     this.color = new THREE.Color();
     this.specular = new THREE.Color();
 
-    this.obj = new THREE.Mesh(geometry, material);
+    this.obj = new THREE.Mesh(this.geometry, this.material);
     this.obj_pos = {
         x: 0,
         y: 0,
@@ -60,31 +60,59 @@ CubeObject.prototype.vibrateObject = function() {
         this.obj_pos.z + 5 * (Math.random() * 2 - 1)
     );
 }
-};
 
 /**
  * 円運動
- * @param  {num} n 1でX軸周りの回転, 2でY軸周りの回転, 3でZ軸周りの回転
+ * @param  {num} n パターン
  */
 CubeObject.prototype.rotateMoveObject = function(n) {
-    if (n == 1) {
+    /* x軸の時計回り */
+    if (n == 0) {
         this.obj.position.y =
-            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y -
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
         this.obj.position.z =
-            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y +
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+    } else if (n == 1) {
+        this.obj.position.x =
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x +
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+        this.obj.position.z =
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z -
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x;
     } else if (n == 2) {
         this.obj.position.x =
-            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x + Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
-        this.obj.position.z = -Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
-    } else {
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x -
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
+        this.obj.position.y =
+            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x +
+            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
+    } else if (n == 3) {
+        this.obj.position.y =
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y -
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+        this.obj.position.z =
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y +
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+    } else if (n == 4) {
         this.obj.position.x =
-            Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
-        this.obj[i].position.y =
-            Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x +
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z;
+        this.obj.position.z =
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.z -
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x;
+    } else if (n == 5) {
+        this.obj.position.x =
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x -
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
+        this.obj.position.y =
+            Math.sin(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.x +
+            Math.cos(-this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos.y;
     }
 
     this.time.rotateMoveTime++;
-};
+}
 
 CubeObject.prototype.changeColor = function() {
     this.obj.material.color.setRGB(
@@ -93,7 +121,7 @@ CubeObject.prototype.changeColor = function() {
         Math.pow(Math.sin(this.time.changeColorTime * (Math.PI / 180)), 2)
     );
     this.time.changeColorTime++;
-};
+}
 
 CubeObject.prototype.changeSpecular = function() {
     this.obj.material.specular.setRGB(
@@ -102,10 +130,10 @@ CubeObject.prototype.changeSpecular = function() {
         Math.pow(Math.sin(this.time.changeSpecularTime * (Math.PI / 180)), 2)
     );
     this.time.changeSpecularTime++;
-};
+}
 
 CubeObject.prototype.rotateDistinctiveObject = function() {
     this.obj.rotation.x -= 0.1;
     this.obj.rotation.y -= 0.1;
     this.obj.rotation.z -= 0.1;
-};
+}
