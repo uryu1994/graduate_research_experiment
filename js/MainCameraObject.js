@@ -26,9 +26,13 @@ var MainCameraObject = function() {
         this.camera.position.y,
         this.camera.position.z);
 
-    this.cameraPositionLog.push(new THREE.Vector3(this.camera.position.x,
+    var table = [
+        this.camera.position.x,
         this.camera.position.y,
-        this.camera.position.z));
+        this.camera.position.z
+    ];
+
+    this.cameraPositionLog.push(table);
 
     /* Function of trackball */
     this.trackball.screen.width = canvasFrame.clientWidth;
@@ -61,7 +65,12 @@ MainCameraObject.prototype.updateCamera = function() {
         this.nowCameraPosition = new THREE.Vector3(
             this.camera.position.x, this.camera.position.y, this.camera.position.z);
 
-        this.cameraPositionLog.push(new THREE.Vector3(
-            this.camera.position.x, this.camera.position.y, this.camera.position.z));
+        var table = [
+            this.camera.position.x,
+            this.camera.position.y,
+            this.camera.position.z
+        ];
+
+        this.cameraPositionLog.push(table);
     }
 };

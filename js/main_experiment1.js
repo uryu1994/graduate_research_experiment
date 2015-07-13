@@ -16,6 +16,7 @@ var mainCameraObject;
 function threeStart() {
     initThree();
     mainCameraObject = new MainCameraObject();
+    initObject();
     initLight();
     createObject();
     loop();
@@ -46,12 +47,11 @@ function initThree() {
     renderer.setClearColorHex(0x000000, 1.0);
     scene = new THREE.Scene();
 }
-
+var time = 0;
 /**
  * 無限ループ関数の定義
  */
 function loop() {
-
     requestAnimationFrame(loop);
     mainCameraObject.camera.up.set(0, 0, 1);
     mainCameraObject.camera.lookAt({
@@ -64,6 +64,12 @@ function loop() {
     renderer.render(scene, mainCameraObject.camera);
     mainCameraObject.trackball.update();
     mainCameraObject.updateCamera();
+    time++;
+
+    //console.log(time);
+    if(time == 10 * 60) {
+        exitProcess();
+    }
 }
 
 var requestAnimationFrame = window.requestAnimationFrame ||
@@ -148,10 +154,10 @@ function createObject() {
 
 function experimentEffect() {
     for (var i = 0; i < distinctiveObjects.length; i++) {
-        distinctiveObjects[i].rotateMoveObject(2);
+        distinctiveObjects[i].rotateMoveObject(0);
     }
     for (var j = 0; j < cubeRandomObjects.length; j++) {
-        cubeRandomObjects[j].rotateMoveObject(5);
+        cubeRandomObjects[j].rotateMoveObject(1);
     }
 }
 
@@ -175,38 +181,6 @@ function draw() {
     renderer.render(scene, mainCameraObject.camera);
 }
 
-/**
- * カメラの座標を記録する
- */
-function recordOfCameraPosition() {
-    // テーブル取得
-    var table = document.getElementById("camera-position");
-    // 行を追加
-    var row = table.insertRow();
-    // セル挿入
-    var xCell = row.insertCell();
-    var yCell = row.insertCell();
-    var zCell = row.insertCell();
-
-    xCell.innerHTML = parseInt(camera.position.x);
-    yCell.innerHTML = parseInt(camera.position.y);
-    zCell.innerHTML = parseInt(camera.position.z);
-
-}
-
-/**
- * 特定のオブジェクトを記録する
- */
-function recordOfDistinctiveObjectPosition(obj) {
-    var table = document.getElementById("camera-position");
-
-    var row = table.insertRow();
-
-    var xCell = row.insertCell();
-    var yCell = row.insertCell();
-    var zCell = row.insertCell();
-
-    xCell.innerHTML = parseInt(obj.position.x);
-    yCell.innerHTML = parseInt(obj.position.y);
-    zCell.innerHTML = parseInt(obj.position.z);
+function exitProcess() {
+    downloadCsv(mainCameraObject.cameraPositionLog);
 }

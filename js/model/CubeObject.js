@@ -45,6 +45,11 @@ CubeObject.prototype.createCubeObject = function(x, y, z) {
         Math.random(),
         Math.random()
     );
+    this.obj.rotation.set(
+        Math.random() * 360 * (Math.PI / 180),
+        Math.random() * 360 * (Math.PI / 180),
+        Math.random() * 360 * (Math.PI / 180)
+    );
     this.material.color.set(this.color);
     this.material.specular.set(this.specular);
     this.material.shininess = 255;
@@ -132,8 +137,37 @@ CubeObject.prototype.changeSpecular = function() {
     this.time.changeSpecularTime++;
 }
 
-CubeObject.prototype.rotateDistinctiveObject = function() {
-    this.obj.rotation.x -= 0.1;
-    this.obj.rotation.y -= 0.1;
-    this.obj.rotation.z -= 0.1;
+/**
+ * 物体の回転移動
+ * @param  {num} cx x軸方向の回転
+ * @param  {num} cy y軸方向の回転
+ * @param  {num} cz z軸方向の回転
+ */
+CubeObject.prototype.rotateDistinctiveObject = function(cx, cy, cz) {
+    if (cx == 1) {
+        this.obj.rotation.x += 0.1;
+    } else if (cx == -1) {
+        this.obj.rotation.x -= 0.1;
+    }
+
+    if (cy == 1) {
+        this.obj.rotation.y += 0.1;
+    } else if (cy == -1) {
+        this.obj.rotation.y -= 0.1;
+    }
+
+    if (cz == 1) {
+        this.obj.rotation.y += 0.1;
+    } else if (cz == -1) {
+        this.obj.rotation.z -= 0.1;
+    }
+}
+
+/**
+ * オブジェクトの点滅を行う
+ */
+CubeObject.prototype.flashObject = function() {
+    this.obj.material.shininess = Math.sin(
+        10 * this.time.flashTime * (Math.PI / 180)) * 50;
+    this.time.flashTime += 0.1;
 }
