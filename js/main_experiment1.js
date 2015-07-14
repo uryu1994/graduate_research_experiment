@@ -19,6 +19,7 @@ function threeStart() {
     initObject();
     initLight();
     createObject();
+    initEvent();
     loop();
 }
 
@@ -67,9 +68,9 @@ function loop() {
     time++;
 
     //console.log(time);
-    if(time == 10 * 60) {
-        exitProcess();
-    }
+    // if(time == 10 * 60) {
+    //     exitProcess();
+    // }
 }
 
 var requestAnimationFrame = window.requestAnimationFrame ||
@@ -122,7 +123,8 @@ function initObject() {
 }
 
 var cubeRandomObject,
-    distinctiveObject;
+    distinctiveObject,
+    rayReceiveObjects;
 
 /**
  * オブジェクトを生成します
@@ -130,6 +132,7 @@ var cubeRandomObject,
 function createObject() {
     cubeRandomObjects = new Array(990);
     distinctiveObjects = new Array(10);
+    rayReceiveObjects = new Array(10);
     for (var i = 0; i < cubeRandomObjects.length; i++) {
         cubeRandomObjects[i] = new CubeObject();
         cubeRandomObjects[i].createCubeObject(
@@ -148,13 +151,14 @@ function createObject() {
             Math.random() * 1000 - 500
         );
         scene.add(distinctiveObjects[j].obj);
+        rayReceiveObjects[j] = distinctiveObjects[j].obj;
 
     }
 }
 
 function experimentEffect() {
     for (var i = 0; i < distinctiveObjects.length; i++) {
-        distinctiveObjects[i].rotateMoveObject(0);
+        //distinctiveObjects[i].vibrateObject();
     }
     for (var j = 0; j < cubeRandomObjects.length; j++) {
         cubeRandomObjects[j].rotateMoveObject(1);

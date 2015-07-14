@@ -9,9 +9,10 @@ document.write('<script src="js/webgl/FlyControls.js"></script>');
 /* model */
 document.write('<script src="js/model/CubeObject.js"></script>');
 document.write('<script src="js/util/csv.js"></script>');
-
+document.write('<script src="js/util/mouseEvent.js"></script>');
 document.write('<script src="js/main_experiment1.js"></script>');
 
 document.write('<script src="js/RGBDirectionalLight.js"></script>');
 document.write('<script src="js/WhiteDirectionalLight.js"></script>');
 document.write('<script src="js/MainCameraObject.js"></script>');
+document.write('<script src="js/Projector.js"></script>')
