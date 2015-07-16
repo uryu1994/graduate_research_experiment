@@ -11,14 +11,17 @@ function calcSeconds(fps) {
 }
 
 var limitSeconds = 10;
+var started = true;
 
 function timeControll(fps) {
-
-    if(calcSeconds(fps) < limitSeconds) {
+    if(calcSeconds(fps) < limitSeconds && started == true) {
+        document.getElementById('reset').disabled = false;
+        document.getElementById('start').disabled = true;
+        document.getElementById('pause').disabled = false;
         experimentEffect();
         fps++;
-    } else {
+    } else if(calcSeconds(fps) >= limitSeconds){
+        stopButton();
     }
-
     return fps;
 }

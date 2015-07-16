@@ -37,12 +37,6 @@ function initThree() {
     renderer = new THREE.WebGLRenderer();
     if (!renderer)
         alert('three.js の初期化に失敗しました');
-    windowWidth = $(window).width();
-    windowHeight = $(window).height();
-    $(function() {
-        $('div#canvas-frame').css('width', windowWidth + 'px');
-        $('div#canvas-frame').css('height', windowHeight + 'px');
-    });
     renderer.setSize(canvasFrame.clientWidth, canvasFrame.clientHeight);
     canvasFrame.appendChild(renderer.domElement);
     renderer.setClearColorHex(0x000000, 1.0);
@@ -116,8 +110,8 @@ function initObject() {
 
 }
 
-var cubeRandomObject,
-    distinctiveObject,
+var cubeRandomObjects,
+    distinctiveObjects,
     rayReceiveObjects;
 
 /**
