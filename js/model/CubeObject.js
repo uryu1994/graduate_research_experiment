@@ -20,6 +20,10 @@ var CubeObject = function() {
         z: 0
     }
 
+    this.obj_col;
+    this.obj_spe;
+    this.obj_rot;
+
     this.time = {
         flashTime: 0,
         rotateTime: 0,
@@ -34,7 +38,6 @@ var CubeObject = function() {
 
 CubeObject.prototype.createCubeObject = function(x, y, z) {
     this.obj.position.set(x, y, z);
-    this.obj_pos = $.extend(true, {}, this.obj.position);
     this.color.setRGB(
         Math.random(),
         Math.random(),
@@ -53,4 +56,25 @@ CubeObject.prototype.createCubeObject = function(x, y, z) {
     this.material.color.set(this.color);
     this.material.specular.set(this.specular);
     this.material.shininess = 255;
+    this.obj_pos = $.extend(true, {}, this.obj.position);
+    this.obj_rot = $.extend(true, {}, this.obj.rotation);
+    this.obj_col = $.extend(true, {}, this.obj.material.color);
+    this.obj_spe = $.extend(true, {}, this.obj.material.specular);
 }
+
+CubeObject.prototype.resetObject = function() {
+    this.obj.position.copy(this.obj_pos);
+    this.obj.rotation.copy(this.obj_rot);
+    this.obj.material.specular.copy(this.obj_spe);
+    this.obj.material.color.copy(this.obj_col);
+    this.obj.material.shininess = 255;
+
+    this.time.flashTime = 0;
+    this.time.rotateTime = 0;
+    this.time.rotateMoveTime = 0;
+    this.time.moveTime = 0;
+    this.time.changeColorTime = 0;
+    this.time.changeSpecularTime = 0;
+    this.time.vibrateTime = 0;
+
+};

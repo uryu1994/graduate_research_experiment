@@ -5,8 +5,21 @@
     <title>メイン</title>
     <script src="js/util/import.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     <div id="canvas-frame"></div>
+    <div id="controll-button">
+      <button type="button" class="btn btn-default" id="reset" aria-label="Left Allign" value="reset" onclick="buttonPushed(this)">
+        <span class="glyphicon glyphicon-step-backward" area-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default" id="start" area-label="Left Allign" value="start" onclick="buttonPushed(this)">
+        <span class="glyphicon glyphicon-play" area-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-default" id="pause" area-label="Left Allign" value="pause" onclick="buttonPushed(this)">
+        <span class="glyphicon glyphicon glyphicon-pause" area-hidden="true"></span>
+      </button>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
