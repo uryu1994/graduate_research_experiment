@@ -48,7 +48,7 @@ function initThree() {
     renderer.setClearColorHex(0x000000, 1.0);
     scene = new THREE.Scene();
 }
-var time = 0;
+var fps = 0;
 /**
  * 無限ループ関数の定義
  */
@@ -61,16 +61,10 @@ function loop() {
         z: 0
     });
     whiteDirectionalLight.functionControll();
-    experimentEffect();
     renderer.render(scene, mainCameraObject.camera);
     mainCameraObject.trackball.update();
     mainCameraObject.updateCamera();
-    time++;
-
-    //console.log(time);
-    // if(time == 10 * 60) {
-    //     exitProcess();
-    // }
+    fps = timeControll(fps);
 }
 
 var requestAnimationFrame = window.requestAnimationFrame ||
@@ -158,10 +152,10 @@ function createObject() {
 
 function experimentEffect() {
     for (var i = 0; i < distinctiveObjects.length; i++) {
-        //distinctiveObjects[i].vibrateObject();
+        distinctiveObjects[i] = vibrateObject(distinctiveObjects[i]);
     }
     for (var j = 0; j < cubeRandomObjects.length; j++) {
-        cubeRandomObjects[j].rotateMoveObject(1);
+        cubeRandomObjects[j] = rotateMoveObject(cubeRandomObjects[j], 1);
     }
 }
 
