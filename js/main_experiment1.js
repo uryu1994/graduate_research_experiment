@@ -148,15 +148,6 @@ function createObject() {
     }
 }
 
-function experimentEffect() {
-    for (var i = 0; i < distinctiveObjects.length; i++) {
-        distinctiveObjects[i] = rotateMoveObject(distinctiveObjects[i], 3);
-    }
-    for (var j = 0; j < cubeRandomObjects.length; j++) {
-        cubeRandomObjects[j] = rotateMoveObject(cubeRandomObjects[j], 1);
-    }
-}
-
 /**
  * オブジェクトのカラーを変更
  */
