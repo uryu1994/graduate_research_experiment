@@ -11,7 +11,7 @@ function calcSeconds(fps) {
 }
 
 var limitSeconds = 10;
-var started = true;
+var started = false;
 
 function timeControll(fps) {
     if(calcSeconds(fps) < limitSeconds && started == true) {
