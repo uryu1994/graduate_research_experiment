@@ -17,7 +17,14 @@ function initEvent() {
 
         var intersects = raycaster.intersectObjects(rayReceiveObjects);
         if (intersects.length > 0) {
+            rayReceiveObjects.some(function(v, i) {
+                if(v == intersects[0].object) {
+                    rayReceiveObjects.splice(i, 1);
+                }
+
+            });
             scene.remove(intersects[0].object);
+            console.log(rayReceiveObjects.length);
         }
     }
 }

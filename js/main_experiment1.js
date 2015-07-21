@@ -114,6 +114,8 @@ var cubeRandomObjects,
     distinctiveObjects,
     rayReceiveObjects;
 
+var count;
+
 /**
  * オブジェクトを生成します
  */
@@ -121,6 +123,7 @@ function createObject() {
     cubeRandomObjects = new Array(990);
     distinctiveObjects = new Array(10);
     rayReceiveObjects = new Array(10);
+    count = rayReceiveObjects.length;
     for (var i = 0; i < cubeRandomObjects.length; i++) {
         cubeRandomObjects[i] = new CubeObject();
         cubeRandomObjects[i].createCubeObject(

@@ -20,7 +20,6 @@ body {
 div#canvas-frame {
   width: 1360px;
   height: 850px;
-  margin: 10px auto;
 }
 
 div#controll-button {
