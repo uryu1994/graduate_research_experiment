@@ -6,18 +6,20 @@
   <script src="js/util/import.js"></script>
   <script type="text/javascript">
     <!--
-    /**
-     * 事前処理を記述
-     */
     function before() {
-
+      for(var i = 0; i < distinctiveObjects.length; i++) {
+        distinctiveObjects[i].time.flashTime = 45;
+      }
     }
 
-    /**
-     * 立方体の動きを記述
-     */
     function experimentEffect() {
-      
+      // ここに動作を記述
+      for(var j = 0; j < cubeRandomObjects.length; j++) {
+        flashObject(cubeRandomObjects[j]);
+      }
+      for(var k = 0; k < distinctiveObjects.length; k++) {
+        flashObject(distinctiveObjects[k]);
+      }
     }
     // -->
   </script>

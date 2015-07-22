@@ -12,7 +12,7 @@ function rotateMoveObject(cube, n) {
     /* x軸の時計回り */
     if (n == 0) {
         cube.obj.position.y =
-            Math.cos(cube.obj.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
+            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
         cube.obj.position.z =
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
