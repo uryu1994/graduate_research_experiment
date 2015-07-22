@@ -6,18 +6,14 @@
   <script src="js/util/import.js"></script>
   <script type="text/javascript">
     <!--
-    /**
-     * 事前処理を記述
-     */
-    function before() {
-
-    }
-
-    /**
-     * 立方体の動きを記述
-     */
     function experimentEffect() {
-      
+      // ここに動作を記述
+      for(var i = 0; i < distinctiveObjects.length; i++) {
+        rotateMoveObject(distinctiveObjects[i], 3);
+      }
+      for(var j = 0; j < cubeRandomObjects.length; j++) {
+        rotateMoveObject(cubeRandomObjects[j], 0);
+      }
     }
     // -->
   </script>

@@ -20,6 +20,7 @@ function threeStart() {
     initLight();
     createObject();
     initEvent();
+    before();
     loop();
 }
 
