@@ -7,7 +7,7 @@
  * @constructor
  * @classdesc 立方体関連のクラス
  */
-var CubeObject = function() {
+var CubeObject = function () {
     this.geometry = new THREE.BoxGeometry(10, 10, 10);
     this.material = new THREE.MeshPhongMaterial();
     this.color = new THREE.Color();
@@ -36,23 +36,23 @@ var CubeObject = function() {
 
 }
 
-CubeObject.prototype.createCubeObject = function(x, y, z) {
+CubeObject.prototype.createCubeObject = function (x, y, z) {
     this.obj.position.set(x, y, z);
     this.color.setRGB(
         Math.random(),
         Math.random(),
         Math.random()
-    );
+        );
     this.specular.setRGB(
         Math.random(),
         Math.random(),
         Math.random()
-    );
+        );
     this.obj.rotation.set(
         Math.random() * 360 * (Math.PI / 180),
         Math.random() * 360 * (Math.PI / 180),
         Math.random() * 360 * (Math.PI / 180)
-    );
+        );
     this.material.color.set(this.color);
     this.material.specular.set(this.specular);
     this.material.shininess = 255;
@@ -62,7 +62,7 @@ CubeObject.prototype.createCubeObject = function(x, y, z) {
     this.obj_spe = $.extend(true, {}, this.obj.material.specular);
 }
 
-CubeObject.prototype.resetObject = function() {
+CubeObject.prototype.resetObject = function () {
     this.obj.position.copy(this.obj_pos);
     this.obj.rotation.copy(this.obj_rot);
     this.obj.material.specular.copy(this.obj_spe);

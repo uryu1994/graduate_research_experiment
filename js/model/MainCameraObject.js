@@ -5,7 +5,7 @@
 /**
  * MainCameraObject
  */
-var MainCameraObject = function() {
+var MainCameraObject = function () {
 
     this.camera = new THREE.PerspectiveCamera(
         45, canvasFrame.clientWidth / canvasFrame.clientHeight, 1, 10000);
@@ -58,7 +58,7 @@ var MainCameraObject = function() {
 /**
  * カメラの軌跡を更新するかしないかを判定
  */
-MainCameraObject.prototype.updateCamera = function() {
+MainCameraObject.prototype.updateCamera = function () {
     if (this.nowCameraPosition.x != this.camera.position.x ||
         this.nowCameraPosition.y != this.camera.position.y ||
         this.nowCameraPosition.z != this.camera.position.z) {

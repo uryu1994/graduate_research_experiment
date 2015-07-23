@@ -5,7 +5,7 @@
 /**
  * CubeRandomObjectのコンストラクタ
  */
-var CubeRandomObject = function(n) {
+var CubeRandomObject = function (n) {
 
     this.objects = new Array(n);
 
@@ -15,7 +15,7 @@ var CubeRandomObject = function(n) {
 /**
  * Phong鏡面反射用の材質を作成
  */
-CubeRandomObject.prototype.phongMaterial = function() {
+CubeRandomObject.prototype.phongMaterial = function () {
     var material = new THREE.MeshPhongMaterial();
     var color = new THREE.Color();
     var specular = new THREE.Color();
@@ -33,7 +33,7 @@ CubeRandomObject.prototype.phongMaterial = function() {
 /**
  * Lambert拡散反射用の材質を作成
  */
-CubeRandomObject.prototype.lambertMaterial = function() {
+CubeRandomObject.prototype.lambertMaterial = function () {
     var material = new THREE.MeshLambertMaterial();
     var color = new THREE.Color();
     color.setRGB(Math.random(), Math.random(), Math.random());
@@ -44,7 +44,7 @@ CubeRandomObject.prototype.lambertMaterial = function() {
 /**
  * オブジェクトを生成
  */
-CubeRandomObject.prototype.createCubeRandomObjects = function() {
+CubeRandomObject.prototype.createCubeRandomObjects = function () {
     for (var i = 0; i < this.objects.length; i++) {
         var geometry = new THREE.CubeGeometry(10, 10, 10);
         var material = this.phongMaterial();
@@ -62,7 +62,7 @@ CubeRandomObject.prototype.createCubeRandomObjects = function() {
     }
 };
 
-CubeRandomObject.prototype.rotateCubeRandomObjects = function() {
+CubeRandomObject.prototype.rotateCubeRandomObjects = function () {
     for (var i = 0; i < this.objects.length; i++) {
         this.objects[i].rotation.x += 0.1;
         this.objects[i].rotation.y += 0.1;

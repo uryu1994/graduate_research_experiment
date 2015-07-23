@@ -12,46 +12,46 @@ function rotateMoveObject(cube, n) {
     /* x軸の時計回り */
     if (n == 0) {
         cube.obj.position.y =
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
         cube.obj.position.z =
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
     } else if (n == 1) {
         cube.obj.position.x =
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
         cube.obj.position.z =
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
     } else if (n == 2) {
         cube.obj.position.x =
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
         cube.obj.position.y =
-            Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
-            Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+        Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
+        Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
     } else if (n == 3) {
         cube.obj.position.y =
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
         cube.obj.position.z =
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
     } else if (n == 4) {
         cube.obj.position.x =
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
         cube.obj.position.z =
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
     } else if (n == 5) {
         cube.obj.position.x =
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
         cube.obj.position.y =
-            Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
-            Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+        Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
+        Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
     }
 
     cube.time.rotateMoveTime++;
@@ -98,7 +98,7 @@ function changeColor(cube) {
         Math.pow(Math.sin(cube.time.changeColorTime * (Math.PI / 180)), 2),
         Math.pow(Math.cos(cube.time.changeColorTime * (Math.PI / 180)), 2),
         Math.pow(Math.sin(cube.time.changeColorTime * (Math.PI / 180)), 2)
-    );
+        );
     cube.time.changeColorTime++;
 
     return cube;
@@ -114,7 +114,7 @@ function changeSpecular(cube) {
         Math.pow(Math.sin(cube.time.changeSpecularTime * (Math.PI / 180)), 2),
         Math.pow(Math.cos(cube.time.changeSpecularTime * (Math.PI / 180)), 2),
         Math.pow(Math.sin(cube.time.changeSpecularTime * (Math.PI / 180)), 2)
-    );
+        );
     cube.time.changeSpecularTime++;
     return cube;
 }
@@ -141,6 +141,6 @@ function vibrateObject(cube) {
         cube.obj_pos.x + 5 * (Math.random() * 2 - 1),
         cube.obj_pos.y + 5 * (Math.random() * 2 - 1),
         cube.obj_pos.z + 5 * (Math.random() * 2 - 1)
-    );
+        );
     return cube;
 }
