@@ -28,5 +28,8 @@ function initEvent() {
             + rayReceiveObjects.length;
             console.log(rayReceiveObjects.length);
         }
+        if(rayReceiveObjects.length == 0) {
+            clearInterval(experiment_timer);
+        }
     }
 }
