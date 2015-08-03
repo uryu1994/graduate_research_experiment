@@ -61,11 +61,11 @@ function rotateMoveObject(cube, n) {
 
 /**
  * 物体の回転移動
- * @param  {num} cx   x軸方向の回転
- * @param  {num} cy   y軸方向の回転
- * @param  {num} cz   z軸方向の回転
+ * @param  {number} cx   x軸方向の回転
+ * @param  {number} cy   y軸方向の回転
+ * @param  {number} cz   z軸方向の回転
  * @param  {CubeObject} cube 変化させるCubeObject
- * @return {CubeObject}      変化したCubeObjectを返す
+ * @return {CubeObject} cube 変化したCubeObjectを返す
  */
 function rotateObject(cx, cy, cz, cube) {
     if (cx == 1) {
@@ -143,4 +143,8 @@ function vibrateObject(cube) {
         cube.obj_pos.z + 5 * (Math.random() * 2 - 1)
         );
     return cube;
+}
+
+function moveStraightObject(cube) {
+    cube.obj.position.x++;
 }
