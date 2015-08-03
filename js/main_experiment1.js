@@ -21,6 +21,7 @@ function threeStart() {
     createObject();
     initEvent();
     before();
+    startTimer();
     loop();
 }
 
