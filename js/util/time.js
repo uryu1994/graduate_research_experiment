@@ -27,7 +27,8 @@ function timeControll(fps) {
         experimentEffect();
         fps++;
     } else if (calcSeconds(fps) >= limitSeconds) {
-        stopButton();
+        resetButton();
+        fps = 0;
     }
     return fps;
 }

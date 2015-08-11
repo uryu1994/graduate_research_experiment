@@ -119,15 +119,14 @@ function changeSpecular(cube) {
     return cube;
 }
 
-/**
- * 周期的に点滅させる
- * @param  {CubeObject} cube 変化させるCubeObject
- * @return {CubeObject}      変化したCubeObjectを返す
+/** @description 周期的に点滅させる
+ * @param {CubeObject} cube 変化させるCubeObject
+ * @param {number} period 周期
+ * @return {CubeObject} cube 変化したCubeObjectを返す
  */
-function flashObject(cube) {
-    cube.obj.material.shininess = Math.sin(
-        10 * cube.time.flashTime * (Math.PI / 180)) * 50;
-    cube.time.flashTime += 0.1;
+function flashObject(cube, period) {
+    cube.obj.material.shininess = Math.cos(cube.time.flashTime * (Math.PI / 180)) * 255;
+    cube.time.flashTime += period;
     return cube;
 }
 
