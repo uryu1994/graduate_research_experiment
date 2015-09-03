@@ -20,6 +20,8 @@ var started = false;
  * @return {number} fps フレームレートを返す
  */
 function timeControll(fps) {
+    // document.getElementById('bar').setAttribute("aria-valuenow",calcSeconds(fps)*10);
+    // document.getElementById('bar').setAttribute("style","width:"+calcSeconds(fps)*10+"%");
     if (calcSeconds(fps) < limitSeconds && started == true) {
         document.getElementById('reset').disabled = false;
         document.getElementById('start').disabled = true;

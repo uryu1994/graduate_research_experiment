@@ -27,3 +27,7 @@ div#controll-button {
   height: 100%;
   margin: 10px auto;
 }
+
+div#progrss-bar {
+  margin: 10px auto;
+}

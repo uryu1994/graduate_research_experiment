@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  
+
   <head>
     <meta charset="UTF-8">
     <title>メイン</title>
@@ -11,16 +11,15 @@
        * 事前処理を記述
        */
       function before() {
-  
+
       }
-  
+
       /**
        * 立方体の動きを記述
        */
       function experimentEffect() {
         for(var i = 0; i < distinctiveObjects.length; i++) {
           flashObject(distinctiveObjects[i], 1);
-          console.log(distinctiveObjects[i].material.shininess);
         }
       }
       // -->
@@ -28,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
-  
+
   <body>
     <div id="canvas-frame"></div>
     <div id="controll-button">
