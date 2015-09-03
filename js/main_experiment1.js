@@ -16,7 +16,7 @@ var mainCameraObject;
 function threeStart() {
     initThree();
     mainCameraObject = new MainCameraObject();
-    initObject();
+    //initObject();
     initLight();
     createObject();
     initEvent();

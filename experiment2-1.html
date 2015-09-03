@@ -7,24 +7,20 @@
     <script src="js/util/import.js"></script>
     <script type="text/javascript">
       <!--
-          
       /**
        * 事前処理を記述
        */
       function before() {
-        
+  
       }
+  
       /**
        * 立方体の動きを記述
        */
       function experimentEffect() {
-        // ここに動作を記述
-        for(var i = 0; i < cubeRandomObjects.length; i++) {
-          rotateMoveObject(cubeRandomObjects[i], 0);
-        }
-        for(var j = 0; j < distinctiveObjects.length; j++) {
-          rotateMoveObject(distinctiveObjects[j], 0);
-          flashObject(distinctiveObjects[j]);
+        for(var i = 0; i < distinctiveObjects.length; i++) {
+          flashObject(distinctiveObjects[i], 1);
+          console.log(distinctiveObjects[i].material.shininess);
         }
       }
       // -->

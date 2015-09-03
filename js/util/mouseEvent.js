@@ -26,7 +26,6 @@ function initEvent() {
             scene.remove(intersects[0].object);
             document.getElementById("object-count").innerHTML="残り:"
             + rayReceiveObjects.length;
-            console.log(rayReceiveObjects.length);
         }
         if(rayReceiveObjects.length == 0) {
             clearInterval(experiment_timer);
