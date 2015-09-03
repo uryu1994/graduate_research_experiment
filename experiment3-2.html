@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>メイン</title>
@@ -12,10 +13,10 @@
 
     function experimentEffect() {
       // ここに動作を記述
-      for(var i = 0; i < distinctiveObjects.length; i++) {
+      for (var i = 0; i < distinctiveObjects.length; i++) {
         rotateMoveObject(distinctiveObjects[i], 0);
       }
-      for(var j = 0; j < cubeRandomObjects.length; j++) {
+      for (var j = 0; j < cubeRandomObjects.length; j++) {
         rotateMoveObject(cubeRandomObjects[j], 2);
       }
     }
@@ -24,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
   <div id="canvas-frame"></div>
   <div id="controll-button">
@@ -41,4 +43,5 @@
   </div>
   <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="UTF-8">
-    <title>メイン</title>
-    <script src="js/util/import.js"></script>
-    <script type="text/javascript">
-      <!--
+<head>
+  <meta charset="UTF-8">
+  <title>メイン</title>
+  <script src="js/util/import.js"></script>
+  <script type="text/javascript">
+    <!--
 
-      /**
-       * 事前処理を記述
-       */
-      function before() {
+    /**
+     * 事前処理を記述
+     */
+    function before() {
 
+    }
+    /**
+     * 立方体の動きを記述
+     */
+    function experimentEffect() {
+      // ここに動作を記述
+      for (var i = 0; i < cubeRandomObjects.length; i++) {
+        moveStraightObject(cubeRandomObjects[i], 1, 0, 0, 2.0);
       }
-      /**
-       * 立方体の動きを記述
-       */
-      function experimentEffect() {
-        // ここに動作を記述
-        for(var i = 0; i < cubeRandomObjects.length; i++) {
-          moveStraightObject(cubeRandomObjects[i], 1, 0, 0, 2.0);
-        }
-        for(var j = 0; j < distinctiveObjects.length; j++) {
-          moveStraightObject(distinctiveObjects[j], -1, 0, 0, 2.0);
-        }
+      for (var j = 0; j < distinctiveObjects.length; j++) {
+        moveStraightObject(distinctiveObjects[j], -1, 0, 0, 2.0);
       }
-      // -->
-    </script>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
+    }
+    // -->
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div id="canvas-frame"></div>
-    <div id="controll-button">
-      <button type="button" class="btn btn-default" id="reset" aria-label="Left Allign" value="reset" onclick="buttonPushed(this)"
-      disabled="true">
-        <span class="glyphicon glyphicon-step-backward" area-hidden="true"></span>
-      </button>
-      <button type="button" class="btn btn-default" id="start" area-label="Left Allign" value="start" onclick="buttonPushed(this)">
-        <span class="glyphicon glyphicon-play" area-hidden="true"></span>
-      </button>
-      <button type="button" class="btn btn-default" id="pause" area-label="Left Allign" value="pause" onclick="buttonPushed(this)"
-      disabled="true">
-        <span class="glyphicon glyphicon glyphicon-pause" area-hidden="true"></span>
-      </button>
-      <span id="object-count"></span>
-      <span id="timer"></span>
-    </div>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+<body>
+  <div id="canvas-frame"></div>
+  <div id="controll-button">
+    <button type="button" class="btn btn-default" id="reset" aria-label="Left Allign" value="reset" onclick="buttonPushed(this)" disabled="true">
+      <span class="glyphicon glyphicon-step-backward" area-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" id="start" area-label="Left Allign" value="start" onclick="buttonPushed(this)">
+      <span class="glyphicon glyphicon-play" area-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" id="pause" area-label="Left Allign" value="pause" onclick="buttonPushed(this)" disabled="true">
+      <span class="glyphicon glyphicon glyphicon-pause" area-hidden="true"></span>
+    </button>
+    <span id="object-count"></span>
+    <span id="timer"></span>
+  </div>
+  <script src="js/bootstrap.min.js"></script>
+</body>
 
 </html>

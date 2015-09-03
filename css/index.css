@@ -21,13 +21,11 @@ div#canvas-frame {
   width: 1360px;
   height: 850px;
 }
-
 div#controll-button {
   width: 50%;
   height: 100%;
   margin: 10px auto;
 }
-
 div#progrss-bar {
   margin: 10px auto;
 }
