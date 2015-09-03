@@ -144,6 +144,34 @@ function vibrateObject(cube) {
     return cube;
 }
 
-function moveStraightObject(cube) {
-    cube.obj.position.x++;
+/**
+ * 物体を直線方向へ移動させる
+ * @param  {CubeObject} cube   移動させる物体
+ * @param  {number} x      X軸方向に動かすかどうかの判定
+ * @param  {number} y      Y軸方向に動かすかどうかの判定
+ * @param  {number} z      Z軸方向に動かすかどうかの判定
+ * @param  {number} period 1回あたりどれだけ動かすか
+ * @return {CubeObject}        移動後の情報が記録された物体を返す
+ */
+function moveStraightObject(cube, x, y, z, period) {
+    /* X軸方向 */
+    if (x == 1) {
+        cube.obj.position.x += period;
+    } else if (x == -1) {
+        cube.obj.position.x -= period;
+    }
+    /* Y軸方向 */
+    if (y == 1) {
+        cube.obj.position.y += period;
+    } else if (y == -1) {
+        cube.obj.position.y -= period;
+    }
+    /* Z軸方向 */
+    if (z == 1) {
+        cube.obj.position.z += period;
+    } else if (z == -1) {
+        cube.obj.position.z -= period;
+    }
+
+    return cube;
 }
