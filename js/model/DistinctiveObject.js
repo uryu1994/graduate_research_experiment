@@ -1,4 +1,3 @@
-
 /**
  * DistinctiveObjectのコンストラクタ
  */
@@ -13,21 +12,21 @@ var DistinctiveObject = function(n) {
     this.obj_Edges = new Array(n);
 
     this.time = {
-        flashTime : 0,
-        rotateTime : 0,
-        rotateMoveTime : 0,
-        moveTime : 0,
-        changeColorTime : 0,
-        changeSpecularTime : 0,
-        vibrateTime : 0
+        flashTime: 0,
+        rotateTime: 0,
+        rotateMoveTime: 0,
+        moveTime: 0,
+        changeColorTime: 0,
+        changeSpecularTime: 0,
+        vibrateTime: 0
     };
 
     this.checkFunction = {
-        flash : 0,
-        move : 0,
-        rotateMove : 0,
-        rotate : 0,
-        vibration : 0,
+        flash: 0,
+        move: 0,
+        rotateMove: 0,
+        rotate: 0,
+        vibration: 0,
         graph: 0
     };
 
@@ -43,7 +42,7 @@ DistinctiveObject.prototype.createDistinctiveObject = function(rangeX, rangeY, r
         var color = new THREE.Color();
         var specular = new THREE.Color();
         color.setRGB(0, 1, 0);
-        specular.setRGB(1,1,1);
+        specular.setRGB(1, 1, 1);
         material.color.set(color);
         material.specular.set(specular);
         material.shininess = 50;
@@ -63,9 +62,9 @@ DistinctiveObject.prototype.createDistinctiveObject = function(rangeX, rangeY, r
         this.obj_pos[i] = $.extend(true, {}, this.obj[i].position);
         this.obj_rotation[i] = $.extend(true, {}, this.obj[i].rotation);
         this.obj_rotateCenter[i] = {
-            x : Math.random() * 500 - 250,
-            y : Math.random() * 500 - 250,
-            z : Math.random() * 500 - 250
+            x: Math.random() * 500 - 250,
+            y: Math.random() * 500 - 250,
+            z: Math.random() * 500 - 250
         };
         var xPow = Math.pow(this.obj_pos[i].x - this.obj_rotateCenter[i].x, 2);
         var yPow = Math.pow(this.obj_pos[i].y - this.obj_rotateCenter[i].y, 2);
@@ -77,7 +76,7 @@ DistinctiveObject.prototype.createDistinctiveObject = function(rangeX, rangeY, r
         this.obj_Edges[i] = new THREE.FaceNormalsHelper(
             this.obj[i], 2, 0x00ff00, 1
         );
-        }
+    }
 };
 
 /**
@@ -129,25 +128,18 @@ DistinctiveObject.prototype.rotateMoveDistinctiveObject = function() {
     for (var i = 0; i < this.obj.length; i++) {
         if (i % 3 == 0) {
             this.obj[i].position.y =
-                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y
-                - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
+                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
             this.obj[i].position.z =
-                Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y
-                + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
+                Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
         } else if (i % 3 == 1) {
             this.obj[i].position.x =
-                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x
-                + Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
-            this.obj[i].position.z =
-                - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x
-                + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
+                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x + Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
+            this.obj[i].position.z = -Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].z;
         } else {
             this.obj[i].position.x =
-                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x
-                - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y;
+                Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x - Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y;
             this.obj[i].position.y =
-                Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x
-                + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y;
+                Math.sin(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].x + Math.cos(this.time.rotateMoveTime * (Math.PI / 180)) * this.obj_pos[i].y;
         }
     }
     this.time.rotateMoveTime++;
@@ -161,9 +153,9 @@ DistinctiveObject.prototype.rotateMoveDistinctiveObject = function() {
  */
 DistinctiveObject.prototype.rotateDistinctiveObject = function() {
     for (var i = 0; i < this.obj.length; i++) {
-            this.obj[i].rotation.x -= 0.1;
-            this.obj[i].rotation.y -= 0.1;
-            this.obj[i].rotation.z -= 0.1;
+        this.obj[i].rotation.x -= 0.1;
+        this.obj[i].rotation.y -= 0.1;
+        this.obj[i].rotation.z -= 0.1;
     }
 };
 
@@ -199,7 +191,7 @@ DistinctiveObject.prototype.changeSpecular = function() {
  * ポジションを元に戻す
  */
 DistinctiveObject.prototype.resetPosition = function() {
-    for (var i =0; i < this.obj.length; i++) {
+    for (var i = 0; i < this.obj.length; i++) {
         this.obj[i].position.x = this.obj_pos[i].x;
         this.obj[i].position.y = this.obj_pos[i].y;
         this.obj[i].position.z = this.obj_pos[i].z;
@@ -231,13 +223,14 @@ DistinctiveObject.prototype.createDistanceLine = function() {
                 var color = new THREE.Color(this.calcDistance(
                     this.obj[i].position, this.obj[j].position
                 ).toString(16));
-                var line = new THREE.Line( lineGeometry, new THREE.LineBasicMaterial( {
-                    lineWidth: 20} ) );
+                var line = new THREE.Line(lineGeometry, new THREE.LineBasicMaterial({
+                    lineWidth: 20
+                }));
                 line.material.color = color;
                 line.geometry.verticesNeedUpdate = true;
                 line.geometry.lineDistancesNeedsUpdate = true;
                 this.obj_line[i].push(line);
-                scene.add(this.obj_line[i][this.obj_line[i].length -1]);
+                scene.add(this.obj_line[i][this.obj_line[i].length - 1]);
             }
         }
     }
@@ -246,7 +239,7 @@ DistinctiveObject.prototype.createDistanceLine = function() {
 
 DistinctiveObject.prototype.deleteDistanceLine = function() {
     for (var i = 0; i < this.obj.length; i++) {
-        while(this.obj_line[i].length != 0) {
+        while (this.obj_line[i].length != 0) {
             scene.remove(this.obj_line[i].pop());
         }
     }
@@ -255,7 +248,7 @@ DistinctiveObject.prototype.deleteDistanceLine = function() {
 
 DistinctiveObject.prototype.updateDistanceLine = function() {
     for (var i = 0; i < this.obj.length; i++) {
-        while(this.obj_line[i].length != 0) {
+        while (this.obj_line[i].length != 0) {
             scene.remove(this.obj_line[i].pop());
         }
         for (var j = 0; j < this.obj.length; j++) {
@@ -265,20 +258,20 @@ DistinctiveObject.prototype.updateDistanceLine = function() {
                 lineGeometry.vertices.push(this.obj[j].position);
 
                 var line = new THREE.Line(lineGeometry,
-                        new THREE.LineBasicMaterial( {lineWidth: 20} ) );
+                    new THREE.LineBasicMaterial({
+                        lineWidth: 20
+                    }));
                 line.geometry.verticesNeedUpdate = true;
                 line.geometry.lineDistancesNeedsUpdate = true;
                 this.obj_line[i].push(line);
-                scene.add(this.obj_line[i][this.obj_line[i].length -1]);
+                scene.add(this.obj_line[i][this.obj_line[i].length - 1]);
             }
         }
     }
 };
 
 DistinctiveObject.prototype.calcDistance = function(p, q) {
-    return Math.sqrt(Math.pow(p.x-q.x, 2)
-            +Math.pow(p.y-q.y, 2)
-            +Math.pow(p.z-q.z, 2)/1000);
+    return Math.sqrt(Math.pow(p.x - q.x, 2) + Math.pow(p.y - q.y, 2) + Math.pow(p.z - q.z, 2) / 1000);
 };
 
 /**
@@ -288,7 +281,7 @@ DistinctiveObject.prototype.calcDistance = function(p, q) {
  *            obj
  */
 DistinctiveObject.prototype.buttonClick = function(obj) {
-    switch(obj.value) {
+    switch (obj.value) {
         case "flash":
             if (this.checkFunction.flash == 0) {
                 this.checkFunction.flash = 1;

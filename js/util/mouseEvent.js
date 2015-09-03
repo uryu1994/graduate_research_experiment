@@ -18,16 +18,15 @@ function initEvent() {
         var intersects = raycaster.intersectObjects(rayReceiveObjects);
         if (intersects.length > 0) {
             rayReceiveObjects.some(function(v, i) {
-                if(v == intersects[0].object) {
+                if (v == intersects[0].object) {
                     rayReceiveObjects.splice(i, 1);
                 }
 
             });
             scene.remove(intersects[0].object);
-            document.getElementById("object-count").innerHTML="残り:"
-            + rayReceiveObjects.length;
+            document.getElementById("object-count").innerHTML = "残り:" + rayReceiveObjects.length;
         }
-        if(rayReceiveObjects.length == 0) {
+        if (rayReceiveObjects.length == 0) {
             clearInterval(experiment_timer);
         }
     }

@@ -14,9 +14,11 @@ and open the template in the editor.
   padding: 0px;
   margin: 0px
 }
+
 body {
   height: 100%;
 }
+
 div#canvas-frame {
   width: 1360px;
   height: 850px;

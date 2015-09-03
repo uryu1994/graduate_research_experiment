@@ -4,7 +4,7 @@
  * @author uryu1994
  */
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     threeStart();
 });
 
@@ -38,7 +38,7 @@ function initThree() {
         alert('three.js の初期化に失敗しました');
     windowWidth = $(window).width();
     windowHeight = $(window).height();
-    $(function () {
+    $(function() {
         $('div#canvas-frame').css('width', windowWidth + 'px');
         $('div#canvas-frame').css('height', windowHeight - 70 + 'px');
     });
@@ -73,7 +73,7 @@ var requestAnimationFrame = window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.oRequestAnimationFrame ||
     window.msRequestAnimationFrame ||
-    function (callback, element) {
+    function(callback, element) {
         window.setTimeOut(callback, 1000 / 60);
     };
 

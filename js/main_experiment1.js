@@ -4,7 +4,7 @@
  * @author uryu1994
  */
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     threeStart();
 });
 
@@ -68,7 +68,7 @@ var requestAnimationFrame = window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.oRequestAnimationFrame ||
     window.msRequestAnimationFrame ||
-    function (callback, element) {
+    function(callback, element) {
         window.setTimeOut(callback, 1000 / 60);
     };
 
@@ -132,7 +132,7 @@ function createObject() {
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500
-            );
+        );
         scene.add(cubeRandomObjects[i].obj);
     }
 
@@ -142,11 +142,10 @@ function createObject() {
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500
-            );
+        );
         scene.add(distinctiveObjects[j].obj);
         rayReceiveObjects[j] = distinctiveObjects[j].obj;
-        document.getElementById("object-count").innerHTML = "残り:"
-        + distinctiveObjects.length;
+        document.getElementById("object-count").innerHTML = "残り:" + distinctiveObjects.length;
     }
 }
 

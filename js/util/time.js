@@ -39,11 +39,11 @@ function timeControll(fps) {
 var seconds = 0;
 var minutes = 0;
 var experiment_timer;
+
 function timer() {
-    document.getElementById("timer").innerHTML="経過時間:"+("0"+minutes).slice(-2)+":"
-    +("0"+seconds).slice(-2);
+    document.getElementById("timer").innerHTML = "経過時間:" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
     seconds++;
-    if(seconds == 60) {
+    if (seconds == 60) {
         minutes++;
         seconds = 0;
     }

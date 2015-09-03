@@ -5,14 +5,14 @@
 /**
  * コンストラクタ
  */
-var RGBDirectionalLight = function () {
+var RGBDirectionalLight = function() {
     /* DirectionalLight */
     this.redDirectionalLight = new THREE.DirectionalLight(0xFF0000, 1.6);
     this.blueDirectionalLight = new THREE.DirectionalLight(0x0000FF, 1.6);
     this.greenDirectionalLight = new THREE.DirectionalLight(0x00FF00, 1.6);
 };
 
-RGBDirectionalLight.prototype.initLight = function () {
+RGBDirectionalLight.prototype.initLight = function() {
 
     this.redDirectionalLight.position.set(500, 0, 500);
     this.blueDirectionalLight.position.set(500, 500, 0);
@@ -68,7 +68,7 @@ RGBDirectionalLight.prototype.initLight = function () {
 
 };
 
-RGBDirectionalLight.prototype.movePosition = function (step) {
+RGBDirectionalLight.prototype.movePosition = function(step) {
     this.redDirectionalLight.position.x = this.red_pos.x - Math.sin(step * Math.PI / 180) * Math.sqrt(Math.pow(this.red_pos.x, 2) + Math.pow(this.red_pos.z, 2));
 
     this.redDirectionalLight.position.z = this.red_pos.z - Math.cos(step * Math.PI / 180) * Math.sqrt(Math.pow(this.red_pos.x, 2) + Math.pow(this.red_pos.z, 2));

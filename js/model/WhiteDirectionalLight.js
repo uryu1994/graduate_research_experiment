@@ -2,7 +2,7 @@
  * @author uryu1994
  */
 
-var WhiteDirectionalLight = function () {
+var WhiteDirectionalLight = function() {
     this.light = new THREE.DirectionalLight(0xFFFFFF, 1.6);
     this.light.position.set(250, 250, 1000);
     this.light.castShadow = true;
@@ -15,7 +15,7 @@ var WhiteDirectionalLight = function () {
     };
 };
 
-WhiteDirectionalLight.prototype.movePosition = function () {
+WhiteDirectionalLight.prototype.movePosition = function() {
     this.light.position.x = this.light_pos.x * Math.sin(
         this.moveTime * (Math.PI / 180));
     this.light.position.y = this.light_pos.y * Math.cos(
@@ -28,7 +28,7 @@ WhiteDirectionalLight.prototype.movePosition = function () {
     console.log(this.light.position);
 };
 
-WhiteDirectionalLight.prototype.addDirectionalLightHelper = function () {
+WhiteDirectionalLight.prototype.addDirectionalLightHelper = function() {
     this.lightHelper = new THREE.DirectionalLightHelper(this.light, 10);
     this.lightHelper.targetLine.geometry.computeLineDistances();
     this.lightHelper.targetLine.material = new THREE.LineDashedMaterial({
@@ -40,7 +40,7 @@ WhiteDirectionalLight.prototype.addDirectionalLightHelper = function () {
     scene.add(this.lightHelper);
 }
 
-WhiteDirectionalLight.prototype.buttonClick = function (obj) {
+WhiteDirectionalLight.prototype.buttonClick = function(obj) {
     switch (obj.value) {
         case "rotate":
             if (this.checkFunction.rotate == 0) {
@@ -54,7 +54,7 @@ WhiteDirectionalLight.prototype.buttonClick = function (obj) {
     }
 };
 
-WhiteDirectionalLight.prototype.functionControll = function () {
+WhiteDirectionalLight.prototype.functionControll = function() {
     if (this.checkFunction.rotate == 1) {
         this.movePosition();
     }
