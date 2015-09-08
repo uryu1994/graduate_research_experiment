@@ -13,6 +13,7 @@ function calcSeconds(fps) {
 
 var limitSeconds = 10;
 var started = false;
+var first_st = false;
 
 /**
  * フレームレートによる時間制御関数
@@ -20,9 +21,8 @@ var started = false;
  * @return {number} fps フレームレートを返す
  */
 function timeControll(fps) {
-    // document.getElementById('bar').setAttribute("aria-valuenow",calcSeconds(fps)*10);
-    // document.getElementById('bar').setAttribute("style","width:"+calcSeconds(fps)*10+"%");
     if (calcSeconds(fps) < limitSeconds && started == true) {
+        first_st = true;
         document.getElementById('reset').disabled = false;
         document.getElementById('start').disabled = true;
         document.getElementById('pause').disabled = false;
@@ -42,10 +42,12 @@ var experiment_timer;
 
 function timer() {
     document.getElementById("timer").innerHTML = "経過時間:" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
-    seconds++;
-    if (seconds == 60) {
-        minutes++;
-        seconds = 0;
+    if (first_st == true) {
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
     }
 }
 
