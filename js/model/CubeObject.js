@@ -31,7 +31,8 @@ var CubeObject = function() {
         moveTime: 0,
         changeColorTime: 0,
         changeSpecularTime: 0,
-        vibrateTime: 0
+        vibrateTime: 0,
+        moveStraightRepeatTime: 0
     };
 
 }
@@ -76,5 +77,6 @@ CubeObject.prototype.resetObject = function() {
     this.time.changeColorTime = 0;
     this.time.changeSpecularTime = 0;
     this.time.vibrateTime = 0;
+    this.time.moveStraightRepeatTime = 0;
 
 };

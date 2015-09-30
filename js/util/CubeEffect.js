@@ -175,3 +175,51 @@ function moveStraightObject(cube, x, y, z, period) {
 
     return cube;
 }
+
+/**
+ * [moveStraightRepeatObject description]
+ * @param  {[type]} cube   [description]
+ * @param  {[type]} x      [description]
+ * @param  {[type]} y      [description]
+ * @param  {[type]} z      [description]
+ * @param  {[type]} period [description]
+ * @param  {[type]} width  [description]
+ * @return {[type]}        [description]
+ */
+function moveStraightRepeatObject(cube, x, y, z, period, width) {
+    /* x軸方向 */
+    if (x == 1) {
+        cube.obj.position.x = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.x;
+    } else if (x == -1) {
+        cube.obj.position.x = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.x;
+    }
+
+    /* y軸方向 */
+    if (y == 1) {
+        cube.obj.position.y = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.y;
+    } else if (y == -1) {
+        cube.obj.position.y = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.y;
+    }
+
+    /* z軸方向 */
+    if (z == 1) {
+        cube.obj.position.z = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.z;
+    } else if (x == -1) {
+        cube.obj.position.z = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.z;
+    }
+
+    cube.time.moveStraightRepeatTime++;
+    return cube;
+}

@@ -23,14 +23,21 @@ var first_st = false;
 function timeControll(fps) {
     if (calcSeconds(fps) < limitSeconds && started == true) {
         first_st = true;
-        document.getElementById('reset').disabled = false;
         document.getElementById('start').disabled = true;
-        document.getElementById('pause').disabled = false;
+        if(playback == true) {
+            document.getElementById('reset').disabled = false;
+            document.getElementById('pause').disabled = false;
+        }
         experimentEffect();
         fps++;
-    } else if (calcSeconds(fps) >= limitSeconds) {
+    } else if (calcSeconds(fps) >= limitSeconds && playback == true) {
         resetButton();
         fps = 0;
+    }else if(started == true && playback == false) {
+        first_st = true;
+        document.getElementById('start').disabled = true;
+        experimentEffect();
+        fps++;
     }
     return fps;
 }
