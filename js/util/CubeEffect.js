@@ -223,3 +223,22 @@ function moveStraightRepeatObject(cube, x, y, z, period, width) {
     cube.time.moveStraightRepeatTime++;
     return cube;
 }
+
+function changeScale(cube, mode, period, width) {
+    if(mode == 1) {
+        cube.obj.scale.set(
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+        );
+    } else if(mode == -1) {
+        cube.obj.scale.set(
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+        );
+    }
+
+    cube.time.changeScaleTime++;
+    return cube;
+}
