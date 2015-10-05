@@ -9,6 +9,7 @@ window.addEventListener("load", function() {
 });
 
 var mainCameraObject;
+var playback = true;
 
 /**
  * three.jsを開始します

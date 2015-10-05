@@ -32,8 +32,10 @@ function stopButton() {
 
 function startButton() {
     document.getElementById('start').disabled = true;
-    document.getElementById('pause').disabled = false;
-    document.getElementById('reset').disabled = false;
+    if(playback == true) {
+        document.getElementById('pause').disabled = false;
+        document.getElementById('reset').disabled = false;
+    }
     started = true;
 }
 
