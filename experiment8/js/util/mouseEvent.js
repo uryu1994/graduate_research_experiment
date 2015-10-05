@@ -29,18 +29,13 @@ function initEvent() {
             scene.remove(intersects[0].object);
             document.getElementById("object-count").innerHTML = "残り:" + rayReceiveObjects.length;
         } else {
-            if (first_st == true) {
-                click_count++;
-            }
+            click_count++;
         }
         if (rayReceiveObjects.length == 0) {
             clearInterval(experiment_timer);
-            started = false;
-            first_st = false;
-            document.getElementById('reset').disabled = true;
-            document.getElementById('start').disabled = true;
-            document.getElementById('pause').disabled = true;
             document.getElementById('click_count').innerHTML = "ミスクリック:" + (click_count) + "回";
+            document.getElementById('frame1').disabled = true;
+            document.getElementById('frame2').disabled = true;
         }
     }
 }

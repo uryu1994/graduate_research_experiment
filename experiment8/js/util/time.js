@@ -11,9 +11,7 @@ function calcSeconds(fps) {
     return fps / 60;
 }
 
-// var limitSeconds = 10;
-var started = false;
-var first_st = false;
+var frame1_select = true;
 
 /**
  * フレームレートによる時間制御関数
@@ -21,32 +19,24 @@ var first_st = false;
  * @return {number} fps フレームレートを返す
  */
 function timeControll(fps) {
-    if (started == true) {
-        first_st = true;
-        document.getElementById('start').disabled = true;
-        document.getElementById('reset').disabled = false;
-        document.getElementById('pause').disabled = false;
-
-        experimentEffect();
-        fps++;
-    }
-
     return fps;
 }
 
 
-var move_seconds = 0;
-var stop_seconds = 0;
+var frame1_seconds = 0;
+var frame2_seconds = 0;
 var experiment_timer;
 
 function timer() {
-    document.getElementById("timer").innerHTML = "動作時間:" + move_seconds +"秒";
-    document.getElementById("stopTime").innerHTML = "停止時間" + stop_seconds + "秒";
-    if (first_st == true && started == true) {
-        move_seconds++;
-    } else if(first_st == true){
-        stop_seconds++;
+    document.getElementById("frame1-timer").innerHTML = "1フレーム目:" + frame1_seconds +"秒";
+    document.getElementById("frame2-timer").innerHTML = "2フレーム目:" + frame2_seconds + "秒";
+
+    if(frame1_select==true) {
+        frame1_seconds++;
+    } else {
+        frame2_seconds++;
     }
+
 }
 
 function startTimer() {

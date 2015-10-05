@@ -1,47 +1,21 @@
-function buttonPushed(action) {
-    if (action.value == "reset") {
-        resetButton();
-    } else if (action.value == "start") {
-        startButton();
-    } else if (action.value == "pause") {
-        pauseButton();
-    }
-}
-
-function resetButton() {
-    for (var i = 0; i < cubeRandomObjects.length; i++) {
-        cubeRandomObjects[i].resetObject();
+function frame1_button() {
+    frame1_select = true;
+    for(var i = 0; i < distinctiveObjects.length; i++) {
+        distinctiveObjects[i].resetObject();
     }
 
-    for (var j = 0; j < distinctiveObjects.length; j++) {
-        distinctiveObjects[j].resetObject();
+    for(var j = 0; j < cubeRandomObjects.length; j++) {
+        cubeRandomObjects[j].resetObject();
     }
-    fps = 0;
-    started = false;
-    document.getElementById('reset').disabled = true;
-    document.getElementById('start').disabled = false;
-    document.getElementById('pause').disabled = true;
+    document.getElementById('frame1').disabled = true;
+    document.getElementById('frame2').disabled = false;
 }
 
-function stopButton() {
-    document.getElementById('start').disabled = true;
-    document.getElementById('pause').disabled = true;
-    document.getElementById('reset').disabled = false;
-    started = false;
-}
-
-function startButton() {
-    document.getElementById('start').disabled = true;
-    if(playback == true) {
-        document.getElementById('pause').disabled = false;
-        document.getElementById('reset').disabled = false;
+function frame2_button() {
+    frame1_select = false;
+    for(var i = 0; i < frame_count; i++) {
+        experimentEffect();
     }
-    started = true;
-}
-
-function pauseButton() {
-    document.getElementById('start').disabled = false;
-    document.getElementById('pause').disabled = true;
-    document.getElementById('reset').disabled = false;
-    started = false;
+    document.getElementById('frame1').disabled = false;
+    document.getElementById('frame2').disabled = true;
 }
