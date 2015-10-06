@@ -246,9 +246,9 @@ function changeScale(cube, mode, period, width) {
         );
     } else if(mode == -1) {
         cube.obj.scale.set(
-            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2),
-            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2),
-            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2)
+            1 - Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2)/width,
+            1 - Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2)/width,
+            1 - Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2)/width
         );
     }
 
