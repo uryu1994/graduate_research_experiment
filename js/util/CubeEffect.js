@@ -5,7 +5,7 @@
 /**
  * CubeObjectに変化をもたらせるエフェクト
  * @param  {CubeObject} cube 立方体モデル
- * @param  {num} n    変化をもたらせる番号
+ * @param  {number}     n    変化をもたらせる番号
  * @return {CubeObject}      変化したCubeObjectを返す
  */
 function rotateMoveObject(cube, n) {
@@ -66,9 +66,9 @@ function rotateMoveObject(cube, n) {
 
 /**
  * 物体の回転移動
- * @param  {number} cx   x軸方向の回転
- * @param  {number} cy   y軸方向の回転
- * @param  {number} cz   z軸方向の回転
+ * @param  {number}     cx   x軸方向の回転
+ * @param  {number}     cy   y軸方向の回転
+ * @param  {number}     cz   z軸方向の回転
  * @param  {CubeObject} cube 変化させるCubeObject
  * @return {CubeObject} cube 変化したCubeObjectを返す
  */
@@ -124,10 +124,10 @@ function changeSpecular(cube) {
     return cube;
 }
 
-/** @description 周期的に点滅させる
- * @param {CubeObject} cube 変化させるCubeObject
- * @param {number} period 周期
- * @return {CubeObject} cube 変化したCubeObjectを返す
+/** 周期的に点滅させる
+ * @param  {CubeObject} cube    変化させるCubeObject
+ * @param  {number}     period  周期
+ * @return {CubeObject} cube    変化したCubeObjectを返す
  */
 function flashObject(cube, period) {
     cube.obj.material.shininess = Math.cos(cube.time.flashTime * (Math.PI / 180)) * 255;
@@ -152,10 +152,10 @@ function vibrateObject(cube) {
 /**
  * 物体を直線方向へ移動させる
  * @param  {CubeObject} cube   移動させる物体
- * @param  {number} x      X軸方向に動かすかどうかの判定
- * @param  {number} y      Y軸方向に動かすかどうかの判定
- * @param  {number} z      Z軸方向に動かすかどうかの判定
- * @param  {number} period 1回あたりどれだけ動かすか
+ * @param  {number}     x      X軸方向に動かすかどうかの判定
+ * @param  {number}     y      Y軸方向に動かすかどうかの判定
+ * @param  {number}     z      Z軸方向に動かすかどうかの判定
+ * @param  {number}     period 1回あたりどれだけ動かすか
  * @return {CubeObject}        移動後の情報が記録された物体を返す
  */
 function moveStraightObject(cube, x, y, z, period) {
@@ -182,14 +182,14 @@ function moveStraightObject(cube, x, y, z, period) {
 }
 
 /**
- * [moveStraightRepeatObject description]
- * @param  {[type]} cube   [description]
- * @param  {[type]} x      [description]
- * @param  {[type]} y      [description]
- * @param  {[type]} z      [description]
- * @param  {[type]} period [description]
- * @param  {[type]} width  [description]
- * @return {[type]}        [description]
+ * 物体を平行に往復移動させる
+ * @param  {CubeObject} cube   移動させる物体
+ * @param  {number}     x      x軸方向(1で正の方向, -1で負の方向)
+ * @param  {number}     y      y軸方向(1で正の方向, -1で負の方向)
+ * @param  {number}     z      z軸方向(1で正の方向, -1で負の方向)
+ * @param  {number}     period 周期
+ * @param  {number}     width  往復する幅(初期位置から)
+ * @return {CubeObject}        座標が変わった後の物体
  */
 function moveStraightRepeatObject(cube, x, y, z, period, width) {
     /* x軸方向 */
@@ -231,24 +231,24 @@ function moveStraightRepeatObject(cube, x, y, z, period, width) {
 
 /**
  * cubeの大きさを拡大・縮小する
- * @param  {[type]} cube   [description]
- * @param  {[type]} mode   [description]
- * @param  {[type]} period [description]
- * @param  {[type]} width  [description]
- * @return {[type]}        [description]
+ * @param  {CubeObject} cube   拡大・縮小させる物体
+ * @param  {number}     mode   1で拡大、-1で縮小
+ * @param  {number}     period 周期
+ * @param  {number}     width  拡大・縮小率
+ * @return {CubeObject}        大きさが変化した後の物体
  */
 function changeScale(cube, mode, period, width) {
     if(mode == 1) {
         cube.obj.scale.set(
-            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
-            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
-            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+            width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2) + 1,
+            width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2) + 1,
+            width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2) + 1
         );
     } else if(mode == -1) {
         cube.obj.scale.set(
-            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
-            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
-            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2),
+            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2),
+            1 - width * Math.pow(Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)), 2)
         );
     }
 
