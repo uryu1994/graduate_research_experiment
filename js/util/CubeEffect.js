@@ -17,6 +17,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+    /* y軸の時計回り */
     } else if (n == 1) {
         cube.obj.position.x =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
@@ -24,6 +25,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+    /* z軸の時計回り */
     } else if (n == 2) {
         cube.obj.position.x =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
@@ -31,6 +33,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.y =
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+    /* x軸の反時計回り */
     } else if (n == 3) {
         cube.obj.position.y =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
@@ -38,6 +41,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+    /* y軸の反時計回り */
     } else if (n == 4) {
         cube.obj.position.x =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
@@ -45,6 +49,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
             Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+    /* z軸の反時計回り */
     } else if (n == 5) {
         cube.obj.position.x =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
@@ -173,5 +178,80 @@ function moveStraightObject(cube, x, y, z, period) {
         cube.obj.position.z -= period;
     }
 
+    return cube;
+}
+
+/**
+ * [moveStraightRepeatObject description]
+ * @param  {[type]} cube   [description]
+ * @param  {[type]} x      [description]
+ * @param  {[type]} y      [description]
+ * @param  {[type]} z      [description]
+ * @param  {[type]} period [description]
+ * @param  {[type]} width  [description]
+ * @return {[type]}        [description]
+ */
+function moveStraightRepeatObject(cube, x, y, z, period, width) {
+    /* x軸方向 */
+    if (x == 1) {
+        cube.obj.position.x = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.x;
+    } else if (x == -1) {
+        cube.obj.position.x = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.x;
+    }
+
+    /* y軸方向 */
+    if (y == 1) {
+        cube.obj.position.y = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.y;
+    } else if (y == -1) {
+        cube.obj.position.y = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.y;
+    }
+
+    /* z軸方向 */
+    if (z == 1) {
+        cube.obj.position.z = width * Math.sin(
+            period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.z;
+    } else if (x == -1) {
+        cube.obj.position.z = width * Math.sin(
+            -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
+        ) + cube.obj_pos.z;
+    }
+
+    cube.time.moveStraightRepeatTime++;
+    return cube;
+}
+
+/**
+ * cubeの大きさを拡大・縮小する
+ * @param  {[type]} cube   [description]
+ * @param  {[type]} mode   [description]
+ * @param  {[type]} period [description]
+ * @param  {[type]} width  [description]
+ * @return {[type]}        [description]
+ */
+function changeScale(cube, mode, period, width) {
+    if(mode == 1) {
+        cube.obj.scale.set(
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+        );
+    } else if(mode == -1) {
+        cube.obj.scale.set(
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1,
+            width * Math.sin(-period * cube.time.changeScaleTime * (Math.PI/180)) + 1
+        );
+    }
+
+    cube.time.changeScaleTime++;
     return cube;
 }
