@@ -17,6 +17,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+    /* y軸の時計回り */
     } else if (n == 1) {
         cube.obj.position.x =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
@@ -24,6 +25,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+    /* z軸の時計回り */
     } else if (n == 2) {
         cube.obj.position.x =
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
@@ -31,6 +33,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.y =
             Math.sin(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
             Math.cos(cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y;
+    /* x軸の反時計回り */
     } else if (n == 3) {
         cube.obj.position.y =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y -
@@ -38,6 +41,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.y +
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z;
+    /* y軸の反時計回り */
     } else if (n == 4) {
         cube.obj.position.x =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x +
@@ -45,6 +49,7 @@ function rotateMoveObject(cube, n) {
         cube.obj.position.z =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.z -
             Math.sin(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x;
+    /* z軸の反時計回り */
     } else if (n == 5) {
         cube.obj.position.x =
             Math.cos(-cube.time.rotateMoveTime * (Math.PI / 180)) * cube.obj_pos.x -
@@ -224,6 +229,14 @@ function moveStraightRepeatObject(cube, x, y, z, period, width) {
     return cube;
 }
 
+/**
+ * cubeの大きさを拡大・縮小する
+ * @param  {[type]} cube   [description]
+ * @param  {[type]} mode   [description]
+ * @param  {[type]} period [description]
+ * @param  {[type]} width  [description]
+ * @return {[type]}        [description]
+ */
 function changeScale(cube, mode, period, width) {
     if(mode == 1) {
         cube.obj.scale.set(
