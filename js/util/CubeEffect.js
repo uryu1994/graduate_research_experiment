@@ -219,7 +219,7 @@ function moveStraightRepeatObject(cube, x, y, z, period, width) {
         cube.obj.position.z = width * Math.sin(
             period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
         ) + cube.obj_pos.z;
-    } else if (x == -1) {
+    } else if (z == -1) {
         cube.obj.position.z = width * Math.sin(
             -period * cube.time.moveStraightRepeatTime * (Math.PI / 180)
         ) + cube.obj_pos.z;
