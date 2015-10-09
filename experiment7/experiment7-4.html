@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>実験7-</title>
+  <script src="../js/util/import.js"></script>
+  <script type="text/javascript">
+    <!--
+    /**
+     * 事前処理を記述
+     */
+    function before() {
+
+    }
+
+    /**
+     * 立方体の動きを記述
+     */
+    function experimentEffect() {
+      for (var j = 0; j < cubeRandomObjects.length; j++) {
+        moveStraightRepeatObject(cubeRandomObjects[j], 1, 0, 0, 1.0, 10);
+      }
+    }
+    // -->
+
+  </script>
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="canvas-frame"></div>
+  <div id="controll-button">
+    <button type="button" class="btn btn-default" id="reset" aria-label="Left Allign" value="reset" onclick="buttonPushed(this)" disabled="true">
+      <span class="glyphicon glyphicon-step-backward" area-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" id="start" area-label="Left Allign" value="start" onclick="buttonPushed(this)">
+      <span class="glyphicon glyphicon-play" area-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" id="pause" area-label="Left Allign" value="pause" onclick="buttonPushed(this)" disabled="true">
+      <span class="glyphicon glyphicon glyphicon-pause" area-hidden="true"></span>
+    </button>
+    <span id="object-count"></span>
+    <span id="timer"></span>
+    <span id="stopTime"></span>
+  </div>
+  <div id="result">
+    <span id="click_count"></span>
+  </div>
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
