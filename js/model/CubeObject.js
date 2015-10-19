@@ -38,13 +38,9 @@ var CubeObject = function() {
 
 }
 
-CubeObject.prototype.createCubeObject = function(x, y, z) {
+CubeObject.prototype.createCubeObject = function(x, y, z, type, num) {
     this.obj.position.set(x, y, z);
-    this.color.setRGB(
-        Math.random(),
-        Math.random(),
-        Math.random()
-    );
+    this.color = selectColor(type, num);
     this.specular.setRGB(
         Math.random(),
         Math.random(),
