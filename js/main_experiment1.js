@@ -17,11 +17,9 @@ var playback = true;
 function threeStart() {
     initThree();
     mainCameraObject = new MainCameraObject();
-    //initObject();
     initLight();
     distinctiveColorPattern();
     createObject();
-    initEvent();
     before();
     startTimer();
     loop();

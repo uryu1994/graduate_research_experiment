@@ -23,10 +23,6 @@ var first_st = false;
 function timeControll(fps) {
     if (started == true) {
         first_st = true;
-        document.getElementById('start').disabled = true;
-        document.getElementById('reset').disabled = false;
-        document.getElementById('pause').disabled = false;
-
         experimentEffect();
         fps++;
     }
