@@ -23,10 +23,6 @@ var first_st = false;
 function timeControll(fps) {
     if (started == true) {
         first_st = true;
-        document.getElementById('start').disabled = true;
-        document.getElementById('reset').disabled = false;
-        document.getElementById('pause').disabled = false;
-
         experimentEffect();
         fps++;
     }
@@ -40,8 +36,7 @@ var stop_seconds = 0;
 var experiment_timer;
 
 function timer() {
-    document.getElementById("timer").innerHTML = "動作時間:" + move_seconds +"秒";
-    document.getElementById("stopTime").innerHTML = "停止時間" + stop_seconds + "秒";
+    document.getElementById("timer").innerHTML = "探索時間:" + move_seconds +"秒";
     if (first_st == true && started == true) {
         move_seconds++;
     } else if(first_st == true){

@@ -17,10 +17,9 @@ var playback = true;
 function threeStart() {
     initThree();
     mainCameraObject = new MainCameraObject();
-    //initObject();
     initLight();
+    distinctiveColorPattern();
     createObject();
-    initEvent();
     before();
     startTimer();
     loop();
@@ -123,16 +122,18 @@ var count;
  * オブジェクトを生成します
  */
 function createObject() {
-    cubeRandomObjects = new Array(990);
-    distinctiveObjects = new Array(10);
-    rayReceiveObjects = new Array(10);
+    cubeRandomObjects = new Array(997);
+    distinctiveObjects = new Array(3);
+    rayReceiveObjects = new Array(3);
     count = rayReceiveObjects.length;
     for (var i = 0; i < cubeRandomObjects.length; i++) {
         cubeRandomObjects[i] = new CubeObject();
         cubeRandomObjects[i].createCubeObject(
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500
+            Math.random() * 1000 - 500,
+            0,
+            i
         );
         scene.add(cubeRandomObjects[i].obj);
     }
@@ -142,11 +143,12 @@ function createObject() {
         distinctiveObjects[j].createCubeObject(
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500
+            Math.random() * 1000 - 500,
+            1,
+            j
         );
         scene.add(distinctiveObjects[j].obj);
         rayReceiveObjects[j] = distinctiveObjects[j].obj;
-        document.getElementById("object-count").innerHTML = "残り:" + distinctiveObjects.length;
     }
 }
 
@@ -168,8 +170,4 @@ function changeColor(obj) {
 function draw() {
     renderer.clear();
     renderer.render(scene, mainCameraObject.camera);
-}
-
-function exitProcess() {
-    downloadCsv(mainCameraObject.cameraPositionLog);
 }
