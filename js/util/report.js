@@ -5,6 +5,14 @@
 var colorSelectCheck = new Array(7);
 
 function report() {
+    for(var i = 0; i < distinctiveObjects.length; i++) {
+        distinctiveObjects[i].resetObject();
+    }
+
+    for(var j = 0; j < cubeRandomObjects.length; j++) {
+        cubeRandomObjects[j].resetObject();
+    }
+    
     var select = document.getElementById('select');
     var selectForm = document.createElement('form');
     selectForm.name = 'selectForm';
