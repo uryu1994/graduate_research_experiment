@@ -122,7 +122,7 @@ var count;
  * オブジェクトを生成します
  */
 function createObject() {
-    cubeRandomObjects = new Array(990);
+    cubeRandomObjects = new Array(997);
     distinctiveObjects = new Array(3);
     rayReceiveObjects = new Array(3);
     count = rayReceiveObjects.length;
