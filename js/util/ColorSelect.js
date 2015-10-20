@@ -9,14 +9,13 @@ var colordata = [
     "rgb(255, 255, 0)",     // 黄
     "rgb(0, 255, 255)",     // 水色
     "rgb(255, 0, 255)",     // 紫
-    "rgb(255, 255, 255)",   // 白
     "rgb(139, 69, 19)"      // 茶色
 ];
 
 var distinctiveColor = [-1, -1, -1];
-var colorPattern = [0,1,2,3,4,5,6,7];
+var colorPattern = [0,1,2,3,4,5,6];
 
-var colorLabel = ["赤", "緑", "青", "黄", "水色", "紫", "白", "茶色"];
+var colorLabel = ["赤", "緑", "青", "黄", "水色", "紫", "茶色"];
 
 /**
  * 特徴あるオブジェクトの色を選択します
@@ -41,7 +40,7 @@ function selectColor(type, num) {
     if(type == 1) {
         select_color = new THREE.Color(colordata[distinctiveColor[num]]);
     } else {
-        select_color = new THREE.Color(colordata[Math.floor(Math.random() * 8)]);
+        select_color = new THREE.Color(colordata[Math.floor(Math.random() * 7)]);
     }
 
     return select_color;
