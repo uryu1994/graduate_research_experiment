@@ -132,6 +132,8 @@ function createObject() {
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500
+            0,
+            i
         );
         scene.add(cubeRandomObjects[i].obj);
     }
@@ -142,6 +144,8 @@ function createObject() {
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500
+            1,
+            j
         );
         scene.add(distinctiveObjects[j].obj);
         rayReceiveObjects[j] = distinctiveObjects[j].obj;
