@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>実験8-1</title>
+  <title>メイン</title>
   <script src="js/util/import.js"></script>
   <script type="text/javascript">
     <!--
@@ -17,16 +17,8 @@
     /**
      * 立方体の動きを記述
      */
-
-    var frame_count = 2;
     function experimentEffect() {
-      for (var i = 0; i < distinctiveObjects.length; i++) {
-        rotateMoveObject(distinctiveObjects[i], 0);
-      }
 
-      for (var j = 0; j < cubeRandomObjects.length; j++) {
-        rotateMoveObject(cubeRandomObjects[j], 3);
-      }
     }
     // -->
 
@@ -38,12 +30,13 @@
 <body>
   <div id="canvas-frame"></div>
   <div id="controll-button">
-    <button type="button" class="btn btn-default" id="frame1" disabled="true" onclick="frame1_button()">1</button>
-    <button type="button" class="btn btn-default" id="frame2" onclick="frame2_button()">2</button>
-
-    <span id="frame1-timer"></span>
-    <span id="frame2-timer"></span>
-    <button type="button" class="btn btn-default" onclick="reportButton()">報告</button>
+    <button type="button" class="btn btn-default" id="start" area-label="Left Allign" value="start" onclick="buttonPushed(this)">
+      Start
+    </button>
+    <button type="button" class="btn btn-default" id="stop" area-label="Left Allign" value="stop" onclick="buttonPushed(this)" disabled="true">
+      Stop
+    </button>
+    <span id="timer"></span>
   </div>
   <div id="select">
   </div>

@@ -19,3 +19,11 @@ function frame2_button() {
     document.getElementById('frame1').disabled = false;
     document.getElementById('frame2').disabled = true;
 }
+
+function reportButton() {
+    clearInterval(experiment_timer);
+    document.getElementById('frame1').disabled = true;
+    document.getElementById('frame2').disabled = true;
+    started = false;
+    report();
+}

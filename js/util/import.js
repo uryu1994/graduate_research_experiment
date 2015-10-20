@@ -18,6 +18,7 @@ document.write('<script src="../js/util/CubeEffect.js"></script>');
 document.write('<script src="../js/util/time.js"></script>');
 document.write('<script src="../js/util/buttonControll.js"></script>');
 document.write('<script src="../js/util/ColorSelect.js"></script>');
+document.write('<script src="../js/util/report.js"></script>');
 
 /* main */
 document.write('<script src="../js/main_experiment1.js"></script>');

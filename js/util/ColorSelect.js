@@ -3,27 +3,30 @@
  */
 
 var colordata = [
-    "rgb(255, 0, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(255, 0, 255)",
-    "rgb(255, 255, 255)",
-    "rgb(139, 69, 19)"
+    "rgb(255, 0, 0)",       // 赤
+    "rgb(0, 255, 0)",       // 緑
+    "rgb(0, 0, 255)",       // 青
+    "rgb(255, 255, 0)",     // 黄
+    "rgb(0, 255, 255)",     // 水色
+    "rgb(255, 0, 255)",     // 紫
+    "rgb(255, 255, 255)",   // 白
+    "rgb(139, 69, 19)"      // 茶色
 ];
 
 var distinctiveColor = [-1, -1, -1];
+var colorPattern = [0,1,2,3,4,5,6,7];
 
-var colorLabel = ["赤", "緑", "青", "黄", "水色", "紫", "茶色"];
+var colorLabel = ["赤", "緑", "青", "黄", "水色", "紫", "白", "茶色"];
 
 /**
  * 特徴あるオブジェクトの色を選択します
  * @return {[type]} [description]
  */
 function distinctiveColorPattern() {
+    colorPattern = shuffle(colorPattern);
     for(var i =0; i < distinctiveColor.length; i++) {
-        distinctiveColor[i] = Math.floor(Math.random() * 8);
+        //distinctiveColor[i] = Math.floor(Math.random() * 8);
+        distinctiveColor[i] = colorPattern[i];
     }
 }
 
@@ -44,6 +47,12 @@ function selectColor(type, num) {
     return select_color;
 }
 
-function randomSort() {
-    return Math.random() - 0.5;
+function shuffle(a) {
+  for (var i=a.length-1;i>=0;i--) {
+    var r=Math.floor(i*Math.random());
+    var tmp=a[i];
+    a[i]=a[r];
+    a[r]=tmp;
+  }
+  return a;
 }
