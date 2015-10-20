@@ -2,7 +2,7 @@
  * @author uryu1994
  */
 
-var colorSelectCheck = new Array(8);
+var colorSelectCheck = new Array(7);
 
 function report() {
     var select = document.getElementById('select');
