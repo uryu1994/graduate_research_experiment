@@ -149,7 +149,6 @@ function createObject() {
         );
         scene.add(distinctiveObjects[j].obj);
         rayReceiveObjects[j] = distinctiveObjects[j].obj;
-        document.getElementById("object-count").innerHTML = "残り:" + distinctiveObjects.length;
     }
 }
 
@@ -171,8 +170,4 @@ function changeColor(obj) {
 function draw() {
     renderer.clear();
     renderer.render(scene, mainCameraObject.camera);
-}
-
-function exitProcess() {
-    downloadCsv(mainCameraObject.cameraPositionLog);
 }

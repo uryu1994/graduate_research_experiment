@@ -15,8 +15,6 @@ document.write('<script src="../js/model/MainCameraObject.js"></script>');
 
 /* utill */
 document.write('<script src="../js/util/CubeEffect.js"></script>');
-document.write('<script src="../js/util/csv.js"></script>');
-document.write('<script src="../js/util/mouseEvent.js"></script>');
 document.write('<script src="../js/util/time.js"></script>');
 document.write('<script src="../js/util/buttonControll.js"></script>');
 document.write('<script src="../js/util/ColorSelect.js"></script>');
