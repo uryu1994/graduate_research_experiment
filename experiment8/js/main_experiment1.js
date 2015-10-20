@@ -131,7 +131,7 @@ function createObject() {
         cubeRandomObjects[i].createCubeObject(
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500
+            Math.random() * 1000 - 500,
             0,
             i
         );
@@ -143,7 +143,7 @@ function createObject() {
         distinctiveObjects[j].createCubeObject(
             Math.random() * 1000 - 500,
             Math.random() * 1000 - 500,
-            Math.random() * 1000 - 500
+            Math.random() * 1000 - 500,
             1,
             j
         );
