@@ -24,7 +24,6 @@ var colorLabel = ["赤", "緑", "青", "黄", "水色", "紫", "茶色"];
 function distinctiveColorPattern() {
     for(var i =0; i < distinctiveColor.length; i++) {
         distinctiveColor[i] = Math.floor(Math.random() * 8);
-        console.log(distinctiveColor[i]);
     }
 }
 
@@ -37,7 +36,6 @@ function distinctiveColorPattern() {
 function selectColor(type, num) {
     var select_color;
     if(type == 1) {
-                console.log(distinctiveColor[num]);
         select_color = new THREE.Color(colordata[distinctiveColor[num]]);
     } else {
         select_color = new THREE.Color(colordata[Math.floor(Math.random() * 8)]);
