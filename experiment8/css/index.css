@@ -12,7 +12,7 @@ and open the template in the editor.
 
 * {
   padding: 0px;
-  margin: 0px
+  margin: 0px;
 }
 
 body {
@@ -20,11 +20,12 @@ body {
 }
 
 div#canvas-frame {
-  width: 1360px;
-  height: 850px;
+  width: 1600px;
+  height: 900px;
+  margin: 10px auto;
 }
 
-div#controll-button {
+div#controll-button, #select, #result {
   width: 50%;
   height: 100%;
   margin: 10px auto;
@@ -32,4 +33,8 @@ div#controll-button {
 
 div#progrss-bar {
   margin: 10px auto;
+}
+
+label {
+  margin: 0px 10px 0px 0px;
 }

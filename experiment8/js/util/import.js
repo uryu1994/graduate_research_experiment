@@ -5,7 +5,7 @@ document.write('<script src="../js/jquery-2.1.4.min.js"></script>');
 document.write('<script src="../js/webgl/three/three.js"></script>');
 document.write('<script src="../js/webgl/TrackballControls.js"></script>');
 document.write('<script src="../js/webgl/FlyControls.js"></script>');
-document.write('<script src="../js/webgl/Projector.js"></script>')
+document.write('<script src="../js/webgl/Projector.js"></script>');
 
 /* model */
 document.write('<script src="../js/model/CubeObject.js"></script>');
