@@ -12,7 +12,7 @@ function report() {
     for(var j = 0; j < cubeRandomObjects.length; j++) {
         cubeRandomObjects[j].resetObject();
     }
-    
+
     var select = document.getElementById('select');
     var selectForm = document.createElement('form');
     selectForm.name = 'selectForm';
@@ -24,8 +24,8 @@ function report() {
         colorSelectCheck[i].value = i;
         colorSelectCheck[i].name = 'selectColor';
         var label = document.createElement('label');
+        label.appendChild(colorSelectCheck[i]);
         label.appendChild(document.createTextNode(colorLabel[i]+ " "));
-        selectForm.appendChild(colorSelectCheck[i]);
         selectForm.appendChild(label);
     }
     var sendButton = document.createElement('input');
