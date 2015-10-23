@@ -55,7 +55,6 @@ function answer() {
             checkNum++;
         }
     }
-    console.log(checkedBox);
     if(checkNum != 3) {
         alert('3つ選択してください。');
     } else {
