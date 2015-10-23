@@ -65,6 +65,7 @@ CubeObject.prototype.resetObject = function() {
     this.obj.rotation.copy(this.obj_rot);
     this.obj.material.specular.copy(this.obj_spe);
     this.obj.material.color.copy(this.obj_col);
+    this.obj.scale.set(1, 1, 1);
     this.obj.material.shininess = 255;
 
     this.time.flashTime = 0;
